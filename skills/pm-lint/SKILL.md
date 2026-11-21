@@ -65,9 +65,9 @@ Detects inconsistencies in `product/items/` and in the decision records (PDRs in
 5. **Ready statuses.** Run this only once step 3 reports no problems: unknown IDs and one-sided `blocks` / `blocked_by` pairs would make the result wrong.
 
    ```bash
-   python3 <skill-base-dir>/../../scripts/sync_ready_status.py --dry-run
+   python3 <skill-base-dir>/scripts/sync_ready_status.py --dry-run
    ```
 
-   This script lives in the repository's shared `scripts/` directory, two levels above this skill. An item is `ready-but-blocked` while at least one of its blockers (from its `blocked_by` or another item's `blocks`) is neither `done` nor `deprecated`, and `ready` otherwise; no other status is touched. The fix is deterministic, so show the user the planned changes and apply them by running the script without `--dry-run`.
+   It runs the repository's shared `scripts/sync_ready_status.py`. An item is `ready-but-blocked` while at least one of its blockers (from its `blocked_by` or another item's `blocks`) is neither `done` nor `deprecated`, and `ready` otherwise; no other status is touched. The fix is deterministic, so show the user the planned changes and apply them by running the script without `--dry-run`.
 
 6. **Summarize** what was found and what was fixed.

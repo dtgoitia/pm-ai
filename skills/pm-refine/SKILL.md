@@ -36,7 +36,7 @@ Guides the user through refining an `idea` or `clarifying` item in `product/item
 4. **Relationships.** When the conversation reveals that this item depends on, unblocks, replaces or relates to another item, edit the relationship with the shared script, which writes both items at once and refuses cycles:
 
    ```bash
-   python3 <skill-base-dir>/../../scripts/relate.py add|remove <A> <relation> <B>
+   python3 <skill-base-dir>/scripts/relate.py add|remove <A> <relation> <B>
    ```
 
    `<relation>` is one of `blocks`, `blocked_by`, `supersedes`, `superseded_by` or `related_to`. Never edit these fields by hand. If the other item doesn't exist yet, offer `/pm-capture` first.

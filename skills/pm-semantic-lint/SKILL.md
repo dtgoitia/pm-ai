@@ -49,7 +49,7 @@ Finds inconsistencies in the *content* of the product files. `/pm-lint` checks s
 
    ```bash
    python3 <skill-base-dir>/../pm-lint/scripts/sync_slugs.py
-   python3 <skill-base-dir>/../../scripts/sync_ready_status.py
+   python3 <skill-base-dir>/scripts/sync_ready_status.py
    ```
 
    Then summarize what was found, what was fixed and what was skipped.

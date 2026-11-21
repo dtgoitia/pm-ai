@@ -195,6 +195,8 @@ To try your changes from other projects, install the skills from this clone (see
 
 Skill scripts import the shared code by adding the repository's `scripts/` directory to `sys.path`, found from their own real location (`Path(__file__).resolve().parents[3] / "scripts"`), which is why installed skills must stay symlinked to this clone.
 
+`SKILL.md` files never point outside their own skill directory (no `<skill-base-dir>/../../scripts/...`): agents may normalize such a path as text, which skips the symlink and lands in `~/.claude/`. A skill that needs a shared script gets a small wrapper in its own `scripts/` that runs it (`pm-refine/scripts/relate.py`, `pm-lint/scripts/sync_ready_status.py`, ...). `tests/test_installed_skill_paths.py` enforces this.
+
 ### Conventions
 
 - **Deterministic work goes in scripts.** Anything that must always give the same result (IDs, file names, frontmatter edits, status changes) is a Python script the skill runs; `SKILL.md` keeps the steps that need judgment or the user's input.
