@@ -24,10 +24,12 @@
         pre-commit-check = git-hooks-nix.lib.${system}.run {
           src = ./.;
           hooks = {
+            alejandra.enable = true;
+
             markdownlint = {
               enable = true;
-              # Skill files are prose; don't hard-wrap them at 80 columns.
-              settings.configuration.MD013 = false;
+              settings.configuration.MD013 = false; # skill files are prose; don't hard-wrap them at 80 columns
+              settings.configuration.MD060 = false; # don't require table pipes to line up across rows
             };
 
             pytest = {
